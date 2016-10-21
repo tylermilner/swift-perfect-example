@@ -11,7 +11,7 @@ This project is based on the PerfectTemplate - https://github.com/PerfectlySoft/
 Simply open PerfectTemplate.xcodeproj and hit the Run button or use the keyboard shortcut:
 
 ```
-CMD + R
+Command + R
 ``` 
 
 ### Terminal
@@ -31,10 +31,18 @@ This means the server is running and waiting for connections. Access [http://loc
 ### Stopping the Server
 
 #### Terminal
-Hit control-c to terminate the server.
+Just like you terminate any other command-line process:
+
+```
+Control + C
+```
 
 #### Xcode
-Press the Stop button or command-. (command period).
+Press the Stop button or use the keyboard shortcut:
+
+```
+Command + .
+```
 
 ## Playground
 
