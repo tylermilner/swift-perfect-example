@@ -26,13 +26,35 @@ let server = HTTPServer()
 
 // Register your own routes and handlers
 var routes = Routes()
+
+/// Navigate to http://localhost:8181/ to see the default Hello, World message
 routes.add(method: .get, uri: "/", handler: {
 		request, response in
+    // NOTE: Comment out the above line and uncomment the below two is also valid. Most of the time, the above line is written on the same line as the opening curly brace.
+//    let request = $0
+//    let response = $1
+    
 		response.setHeader(.contentType, value: "text/html")
 		response.appendBody(string: "<html><title>Hello, Tmart!</title><body>Hello, Tmart!</body></html>")
 		response.completed()
 	}
 )
+
+/// Navigate to http://localhost:8181/hello-world?name=Tyler to see a custom message returned as JSON
+routes.add(method: .get, uri: "/hello-world") { (request, response) in
+    let name = request.param(name: "name")
+    let message = "Hello, \(name)"
+    
+    response.setHeader(.contentType, value: "application/json")
+    let jsonResult: [String: Any] = ["message": message]
+    
+    do {
+        try response.setBody(json: jsonResult)
+    } catch let error {
+        print("Error setting response body: \(error)")
+    }
+    response.completed()
+}
 
 // Add the routes to the server.
 server.addRoutes(routes)
