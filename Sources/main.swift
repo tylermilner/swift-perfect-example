@@ -21,6 +21,12 @@ import PerfectLib
 import PerfectHTTP
 import PerfectHTTPServer
 
+let defaultName = "World"
+
+func message(for name: String?) -> String {
+    return "Hello, \(name ?? defaultName)!"
+}
+
 // Create HTTP server.
 let server = HTTPServer()
 
@@ -29,29 +35,36 @@ var routes = Routes()
 
 /// Navigate to http://localhost:8181/ to see the default Hello, World message
 routes.add(method: .get, uri: "/", handler: {
-		request, response in
+    request, response in
     // NOTE: Comment out the above line and uncomment the below two is also valid. Most of the time, the above line is written on the same line as the opening curly brace.
 //    let request = $0
 //    let response = $1
     
-		response.setHeader(.contentType, value: "text/html")
-		response.appendBody(string: "<html><title>Hello, Tmart!</title><body>Hello, Tmart!</body></html>")
-		response.completed()
+    let defaultMessage = message(for: defaultName)
+    
+    response.setHeader(.contentType, value: "text/html")
+    response.appendBody(string: "<html><title>\(defaultMessage)</title><body>\(defaultMessage)</body></html>")
+    response.completed()
 	}
 )
 
 /// Navigate to http://localhost:8181/hello-world?name=Tyler to see a custom message returned as JSON
 routes.add(method: .get, uri: "/hello-world") { (request, response) in
-    let name = request.param(name: "name")
-    let message = "Hello, \(name)"
-    
+    // Set headers
     response.setHeader(.contentType, value: "application/json")
-    let jsonResult: [String: Any] = ["message": message]
+    
+    // Set JSON response
+    // TODO: Could show example of error handling for when a name is not provided
+    let name = request.param(name: "name")
+    let messageResult = message(for: name)
+    
+    let jsonResult: [String: Any] = ["message": messageResult]
     
     do {
         try response.setBody(json: jsonResult)
     } catch let error {
         print("Error setting response body: \(error)")
+        // TODO: Set response error
     }
     response.completed()
 }
