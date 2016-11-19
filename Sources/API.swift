@@ -16,10 +16,9 @@ struct API {
     
     static let hostname = "localhost"
     static let ip = "0.0.0.0"
-    static let port = 8181
+    static let port: UInt16 = 8181
     
-    static var baseURL: URL {
-        guard let url = URL(string: "http://\(ip)") else { fatalError("Unable to generate base URL") }
-        return url
+    static var baseURL: String {
+        return "http://\(ip)"
     }
 }

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A4066EDE1DDFE02A006E384A /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4066EDC1DDFE021006E384A /* Routes.swift */; };
+		A4066EE01DDFE0EB006E384A /* Handlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4066EDF1DDFE0EB006E384A /* Handlers.swift */; };
+		A4066EE21DDFE592006E384A /* ServerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4066EE11DDFE592006E384A /* ServerBuilder.swift */; };
 		A45241111DCC278D001BAEBB /* PerfectTemplateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45241101DCC278D001BAEBB /* PerfectTemplateTests.swift */; };
 		A45241131DCC278D001BAEBB /* PerfectLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_PerfectLib" /* PerfectLib.framework */; };
 		A452411B1DCC29A7001BAEBB /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45241191DCC28D1001BAEBB /* API.swift */; };
@@ -813,10 +816,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A4066EDC1DDFE021006E384A /* Routes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Routes.swift; path = Sources/Routes/Routes.swift; sourceTree = "<group>"; };
+		A4066EDF1DDFE0EB006E384A /* Handlers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Handlers.swift; path = Sources/Handlers/Handlers.swift; sourceTree = "<group>"; };
+		A4066EE11DDFE592006E384A /* ServerBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ServerBuilder.swift; path = Sources/Builder/ServerBuilder.swift; sourceTree = "<group>"; };
 		A452410E1DCC278D001BAEBB /* PerfectTemplateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PerfectTemplateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A45241101DCC278D001BAEBB /* PerfectTemplateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfectTemplateTests.swift; sourceTree = "<group>"; };
 		A45241121DCC278D001BAEBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A45241191DCC28D1001BAEBB /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		A45241191DCC28D1001BAEBB /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = API.swift; path = Sources/API.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Package.swift /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		"__PBXFileRef_Packages/COpenSSL-2.0.1/COpenSSL/a_bitstr.c" /* a_bitstr.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = a_bitstr.c; sourceTree = "<group>"; };
 		"__PBXFileRef_Packages/COpenSSL-2.0.1/COpenSSL/a_bool.c" /* a_bool.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = a_bool.c; sourceTree = "<group>"; };
@@ -1702,6 +1708,10 @@
 			isa = PBXGroup;
 			children = (
 				"_______Group_PerfectTemplate" /* PerfectTemplate */,
+				A45241191DCC28D1001BAEBB /* API.swift */,
+				A4066EDC1DDFE021006E384A /* Routes.swift */,
+				A4066EDF1DDFE0EB006E384A /* Handlers.swift */,
+				A4066EE11DDFE592006E384A /* ServerBuilder.swift */,
 			);
 			name = Sources;
 			sourceTree = "<group>";
@@ -2471,7 +2481,6 @@
 			children = (
 				__PBXFileRef_Sources/arguments.swift /* arguments.swift */,
 				__PBXFileRef_Sources/main.swift /* main.swift */,
-				A45241191DCC28D1001BAEBB /* API.swift */,
 			);
 			name = PerfectTemplate;
 			path = Sources;
@@ -3479,7 +3488,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				A4066EE21DDFE592006E384A /* ServerBuilder.swift in Sources */,
 				__src_cc_ref_Sources/arguments.swift /* arguments.swift in Sources */,
+				A4066EE01DDFE0EB006E384A /* Handlers.swift in Sources */,
+				A4066EDE1DDFE02A006E384A /* Routes.swift in Sources */,
 				A452411B1DCC29A7001BAEBB /* API.swift in Sources */,
 				__src_cc_ref_Sources/main.swift /* main.swift in Sources */,
 			);
@@ -3958,6 +3970,7 @@
 				A45241171DCC278D001BAEBB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
 		};
 		"___RootConfs_" /* Build configuration list for PBXProject "PerfectTemplate" */ = {
 			isa = XCConfigurationList;
