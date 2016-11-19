@@ -10,7 +10,7 @@
 		{
 			"name": "Hello, World",
 			"request": {
-				"url": "{{baseURL}}/hello-world?name={{name}}",
+				"url": "{{baseURL}}/hello?name={{name}}",
 				"method": "GET",
 				"header": [],
 				"body": {
