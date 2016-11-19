@@ -34,7 +34,7 @@ let server = HTTPServer()
 var routes = Routes()
 
 /// Navigate to http://localhost:8181/ to see the default Hello, World message
-routes.add(method: .get, uri: "/", handler: {
+routes.add(method: .get, uri: API.Endpoint.root.rawValue, handler: {
     request, response in
     // NOTE: Comment out the above line and uncomment the below two is also valid. Most of the time, the above line is written on the same line as the opening curly brace.
 //    let request = $0
@@ -49,7 +49,7 @@ routes.add(method: .get, uri: "/", handler: {
 )
 
 /// Navigate to http://localhost:8181/hello-world?name=Tyler to see a custom message returned as JSON
-routes.add(method: .get, uri: "/hello-world") { (request, response) in
+routes.add(method: .get, uri: API.Endpoint.hello.rawValue) { (request, response) in
     // Set headers
     response.setHeader(.contentType, value: "application/json")
     
@@ -73,7 +73,7 @@ routes.add(method: .get, uri: "/hello-world") { (request, response) in
 server.addRoutes(routes)
 
 // Set a listen port of 8181
-server.serverPort = 8181
+server.serverPort = UInt16(API.port)
 
 // Set a document root.
 // This is optional. If you do not want to serve static content then do not set this.
